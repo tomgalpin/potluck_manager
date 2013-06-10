@@ -1,0 +1,30 @@
+<h1 class="container">Add a New Person</h1>
+
+<!-- Add User Form -->
+<form class="container" method="post" action="/new_user">
+  <input type="text" name="user[name]">
+  <button>Save User</button>
+</form>
+
+<div id="list_of_users" class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Potlucks</th>
+        <th>Items to Bring</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td>
+          <strong><%= user.name %></strong>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

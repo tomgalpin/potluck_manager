@@ -1,0 +1,25 @@
+<h1 class="container">Add an Item Tag</h1>
+
+<form class="container" method="post" action="/new_tag">
+  <input type="text" name="tag[name]">
+  <button>Save Tag</button>
+</form>
+
+<div id="list_of_tags" class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tags.each do |tag| %>
+      <tr>
+        <td>
+          <strong><%= tag.name %></strong>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

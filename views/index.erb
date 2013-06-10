@@ -1,13 +1,27 @@
-<h1>WDI Potlucks</h1>
+<h1 class="container">WDI Potlucks</h1>
 
-<ul>
-  <%= @potlucks.each do |potluck| %>
-  <li>
-    <strong><%= potluck.name %></strong>
-    <a href="/view_potluck<%= potluck.id %>">View</a>
-    <a href="/edit_potluck<%= potluck.id %>">Edit</a>
-  </li>
-  <% end %>
-</ul>
+<!--iterate through all of the potlucks created from new_potluck and display their names.
+Also link to the view and edit potluck pages -->
+<div id="list_of_potlucks_table" class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @potlucks.each do |potluck| %>
+      <tr>
+        <td>
+          <strong><%= potluck.name %></strong>
+          <div id="tableButtons" class="btn-group">
+            <button class="btn btn-mini"><a href="/edit_potluck/<%= potluck.id %>">View and Edit</a></button>
+            <button id="deleteButton" class="btn btn-mini">Delete</button>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<hr>

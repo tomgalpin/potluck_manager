@@ -1,10 +1,8 @@
-/*nav {
-  background: black;
-  width: 100%;
-  height: 50px;
+#list_of_potlucks_table {
+  border: 1px solid black;
 }
 
-body {
-  background:orange;
-  padding:100px;
-}*/
+#tableButtons {
+  text-decoration: none !important;
+}
+

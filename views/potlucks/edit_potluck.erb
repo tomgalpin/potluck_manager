@@ -1,0 +1,52 @@
+<!--
+1. List the name of the potluck
+2. Add items button that takes user to another page
+  -items need to be applied to this potluck_id
+3. In a table format:  list items, their tags, and have a button that someone can claim (have person_id associated with item_id)-->
+<div class="container">
+  <h1><%= @potluck.name %></h1>
+
+  <!-- Add an item -->
+<p>Add a New Item to this Potluck</p>
+  <form method="post" action="/new_item/<%= @potluck.id %>">
+    <input type="text" name="item_name">
+    <br>
+    <p>Tags:</p>
+    <!--need to pre-populate tags in psql -->
+    <% Tag.all.each do |tag| %>
+      <input type="checkbox" name="item[tag_ids][]" value="<%= tag.id %>">
+      <%= tag.name %>
+      <br>
+    <% end %>
+    <br>
+    <button>Add Item</button>
+  </form>
+</div>
+
+
+<div id="list_of_items_for_potluck" class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Tags</th>
+        <th>Claimed By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @potluck_items.each do |item| %>
+      <tr>
+        <td>
+          <strong><%= item.name %></strong>
+        </td>
+        <td>
+
+        </td>
+        <td>
+          <select>Claim Item</select>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
